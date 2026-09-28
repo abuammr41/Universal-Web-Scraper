@@ -1,0 +1,7 @@
+# Har line par ek URL. Ye sab scraping practice ke liye bani hui websites hain.
+https://example.com
+https://httpbin.org/html
+https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
+https://quotes.toscrape.com/
+https://webscraper.io/test-sites/e-commerce/allinone/phones/touch
+https://www.w3schools.com/html/html_tables.asp

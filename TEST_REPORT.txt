@@ -1,0 +1,23 @@
+V5 TEST REPORT
+
+Original V4 tests: PASS (all modes, formatter, Excel export, pagination).
+
+V5 fixes (each verified with tests):
+1. Normal sites with reCAPTCHA contact forms were wrongly marked BLOCKED  -> fixed
+2. requests mode never detected block pages                              -> fixed
+3. Browser mode marked 404/500 error pages as Success                    -> fixed (now HTTP_ERROR)
+4. Control characters in scraped text crashed the Excel export           -> fixed
+5. Text above Excel's 32,767 cell limit could corrupt the file           -> fixed (32,000 limit)
+6. Scraped text starting with "=" became an Excel formula                -> fixed (saved as text)
+7. Dates / order IDs detected as phone numbers                           -> fixed
+8. Emails/phones only in mailto:/tel: links were missed                  -> fixed
+9. Image filenames like logo@2x.png detected as emails                   -> fixed
+10. Duplicate table headers (two "Price" columns) lost data               -> fixed (Price, Price_2)
+11. base64 placeholder images went into Image URLs                        -> fixed (data-src preferred)
+12. Excel file open during save caused a crash                           -> fixed (saves with new name)
+13. Mixed results left NaN values in Excel cells                         -> fixed (empty cells)
+Added: urls.txt support; installer uses "py" (works on Windows).
+
+End-to-end test on a local website: browser mode + requests mode, pagination (2 pages),
+JavaScript-rendered content (browser only), 404 page -> HTTP_ERROR: PASS.
+Not testable here: real internet sites (sandbox has no internet) — run a small test on the client's actual URLs first.
